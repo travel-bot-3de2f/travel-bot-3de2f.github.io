@@ -1,10 +1,257 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>我的个人主页</title>
-</head>
-<body>
-    <h1>欢迎来到我的个人主页！</h1>
-    <p>这是我用 GitHub Pages 搭建的第一个网站。</p>
-</body>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一份为首次参观准备的大英博物馆三小时路线：22 件标志性藏品、互动 2.5D 地图与真实图片。"
+    />
+    <meta name="theme-color" content="#f6efd9" />
+    <title>我的英国漫游地图</title>
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <div class="paper-noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#/" aria-label="返回英国漫游地图首页">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>
+          <strong>UK, Here I Come!</strong>
+          <small>我的英国漫游手账</small>
+        </span>
+      </a>
+      <div class="header-stamp" aria-hidden="true">LONDON<br />2026</div>
+    </header>
+
+    <main id="main-content">
+      <section id="home-page" class="page home-page" aria-labelledby="home-title">
+        <div class="home-intro">
+          <p class="eyebrow"><span>01</span> 第一站 · 伦敦</p>
+          <h1 id="home-title">把伦敦装进<br /><em>一张会动的地图</em></h1>
+          <p class="lede">
+            从大英博物馆开始，慢慢点亮我的英国旅程。地图上的每枚贴纸，都是下一篇专属攻略。
+          </p>
+          <button class="primary-button" id="start-exploring" type="button">
+            打开第一站
+            <span aria-hidden="true">→</span>
+          </button>
+          <div class="trip-note" aria-label="本次旅行信息">
+            <span aria-hidden="true">☁</span>
+            <p><strong>London notes</strong><br />轻装、慢逛、记得抬头。</p>
+          </div>
+        </div>
+
+        <div class="london-map-wrap" aria-label="伦敦景点地图">
+          <div class="map-tape map-tape-one" aria-hidden="true"></div>
+          <div class="map-tape map-tape-two" aria-hidden="true"></div>
+          <div class="london-map">
+            <svg class="london-drawing" viewBox="0 0 760 570" role="img" aria-labelledby="london-map-title london-map-desc">
+              <title id="london-map-title">卡通伦敦景点地图</title>
+              <desc id="london-map-desc">大英博物馆可以进入攻略，其他四个景点尚未解锁。</desc>
+              <defs>
+                <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#17334d" flood-opacity="0.16" />
+                </filter>
+                <pattern id="tiny-dots" width="18" height="18" patternUnits="userSpaceOnUse">
+                  <circle cx="3" cy="3" r="1.5" fill="#17334d" opacity="0.08" />
+                </pattern>
+              </defs>
+              <rect x="10" y="10" width="740" height="550" rx="38" fill="url(#tiny-dots)" />
+              <path class="park" d="M77 85C120 45 220 52 247 111c26 58-36 96-99 91-66-5-113-76-71-117Z" />
+              <path class="park park-two" d="M511 80c72-46 151-6 154 50 3 55-60 82-121 60-55-20-77-82-33-110Z" />
+              <path class="street" d="M92 268c88-56 178-63 263-18s182 45 288-27" />
+              <path class="street" d="M150 105c82 62 113 134 101 224-11 79 30 139 117 179" />
+              <path class="street" d="M526 108c-40 75-48 146-19 215 23 54 75 95 153 122" />
+              <path class="street street-short" d="M314 87c19 76 72 116 160 120" />
+              <path class="thames" d="M-20 405c118-67 208-76 302-30 88 43 160 46 248 1 81-41 155-37 251 22" />
+              <path class="thames-highlight" d="M-20 394c118-67 208-76 302-30 88 43 160 46 248 1 81-41 155-37 251 22" />
+              <text x="520" y="441" class="river-label">RIVER THAMES</text>
+              <g class="doodle-buildings" aria-hidden="true">
+                <path d="M75 308h90v66H75zM90 287h18v21M133 280h18v28M88 327h18v18m24-18h18v18" />
+                <path d="M568 222h83v108h-83zM582 196h18v26m21-44h17v44m-54 28h18m20 0h17m-55 31h18m20 0h17" />
+                <path d="M456 463h112v54H456zm18-20h77v20m-56 0v-25m33 25v-31" />
+              </g>
+            </svg>
+
+            <button class="map-pin active-pin" style="--x: 47%; --y: 28%" data-attraction="british-museum" type="button">
+              <span class="pin-icon museum-icon" aria-hidden="true">🏛</span>
+              <span class="pin-label"><strong>大英博物馆</strong><small>3 小时路线 · 已解锁</small></span>
+            </button>
+
+            <button class="map-pin upcoming-pin" style="--x: 38%; --y: 63%" data-attraction="big-ben" type="button" aria-label="大本钟，即将解锁">
+              <span class="pin-icon" aria-hidden="true">🕰</span>
+              <span class="pin-label"><strong>大本钟</strong><small>即将解锁</small></span>
+            </button>
+
+            <button class="map-pin upcoming-pin" style="--x: 25%; --y: 55%" data-attraction="buckingham" type="button" aria-label="白金汉宫，即将解锁">
+              <span class="pin-icon" aria-hidden="true">👑</span>
+              <span class="pin-label"><strong>白金汉宫</strong><small>即将解锁</small></span>
+            </button>
+
+            <button class="map-pin upcoming-pin" style="--x: 78%; --y: 61%" data-attraction="tower-bridge" type="button" aria-label="塔桥，即将解锁">
+              <span class="pin-icon" aria-hidden="true">🌉</span>
+              <span class="pin-label"><strong>塔桥</strong><small>即将解锁</small></span>
+            </button>
+
+            <button class="map-pin upcoming-pin" style="--x: 53%; --y: 68%" data-attraction="london-eye" type="button" aria-label="伦敦眼，即将解锁">
+              <span class="pin-icon" aria-hidden="true">🎡</span>
+              <span class="pin-label"><strong>伦敦眼</strong><small>即将解锁</small></span>
+            </button>
+
+            <span class="compass" aria-hidden="true"><b>N</b><i></i></span>
+            <span class="map-caption">MY LONDON MAP · NOT TO SCALE</span>
+          </div>
+        </div>
+
+        <div class="home-stats" aria-label="旅行地图状态">
+          <div><strong>01</strong><span>已解锁攻略</span></div>
+          <div><strong>22</strong><span>标志性藏品</span></div>
+          <div><strong>3h</strong><span>预计参观时间</span></div>
+        </div>
+      </section>
+
+      <section id="museum-page" class="page museum-page" aria-labelledby="museum-title" hidden>
+        <div class="museum-topbar">
+          <button class="text-button" id="back-home" type="button"><span aria-hidden="true">←</span> 返回伦敦地图</button>
+          <p>Stop 01 · Bloomsbury</p>
+          <button class="text-button" id="open-credits" type="button">图片鸣谢</button>
+        </div>
+
+        <div class="museum-hero">
+          <div class="museum-hero-copy">
+            <p class="eyebrow"><span>02</span> 首次参观路线</p>
+            <h1 id="museum-title">大英博物馆<br /><em>三小时寻宝记</em></h1>
+            <p>
+              跟随馆方 22 站路线，从中世纪星盘走到江户武士甲胄。点亮地图上的圆点，一站一站完成这场横跨世界文明的散步。
+            </p>
+            <div class="hero-tags" aria-label="路线摘要">
+              <span>⏱ 约 3 小时</span>
+              <span>✦ 22 站</span>
+              <span>↕ 4 个楼层</span>
+              <span>£ 免费参观</span>
+            </div>
+          </div>
+          <div class="museum-ticket" aria-label="路线票根">
+            <span>ADMIT ONE</span>
+            <strong>BM</strong>
+            <p>THE GREAT<br />COURT ROUTE</p>
+            <small>№ 2026 · 22 STOPS</small>
+          </div>
+        </div>
+
+        <aside id="closure-alert" class="closure-alert" hidden>
+          <span class="alert-icon" aria-hidden="true">!</span>
+          <div>
+            <strong>2026 年 10 月上旬特别提醒</strong>
+            <p>
+              9 月 28 日至 10 月 9 日，Room 55 暂停开放、Room 56 部分开放。第 18–19 站请以现场指示为准，可把时间留给第 17 站机械帆船钟。
+            </p>
+          </div>
+          <a href="https://www.britishmuseum.org/visit" target="_blank" rel="noreferrer">查看今日状态 ↗</a>
+        </aside>
+
+        <div class="route-toolbar">
+          <div>
+            <p class="section-kicker">Interactive route</p>
+            <h2>今天从哪里开始？</h2>
+          </div>
+          <div class="progress-card" aria-label="参观进度">
+            <div class="progress-copy"><span id="progress-count">0 / 22</span><small>已打卡</small></div>
+            <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+            <button id="reset-progress" type="button">清空</button>
+          </div>
+        </div>
+
+        <div class="museum-explorer">
+          <section class="map-panel" aria-labelledby="map-panel-title">
+            <div class="panel-heading">
+              <div>
+                <span class="mini-label">2.5D FLOOR GUIDE</span>
+                <h3 id="map-panel-title">路线地图</h3>
+              </div>
+              <div class="floor-tabs" id="floor-tabs" aria-label="筛选楼层"></div>
+            </div>
+
+            <div class="museum-map-shell">
+              <svg id="museum-map" class="museum-map" viewBox="0 0 900 560" role="img" aria-labelledby="museum-map-title museum-map-desc">
+                <title id="museum-map-title">大英博物馆三小时路线楼层示意图</title>
+                <desc id="museum-map-desc">四个楼层与二十二个可点击藏品站点，路线从一号站连接至二十二号站。</desc>
+              </svg>
+              <div class="map-legend" aria-hidden="true">
+                <span><i class="legend-dot current"></i>当前</span>
+                <span><i class="legend-dot done"></i>已打卡</span>
+                <span><i class="legend-line"></i>路线</span>
+              </div>
+            </div>
+
+            <p class="map-disclaimer">
+              这是按房间关系绘制的路线示意图，并非精确室内导航。馆内临时调整时，请以现场标识与
+              <a href="https://www.britishmuseum.org/visit/museum-map" target="_blank" rel="noreferrer">官方地图 ↗</a> 为准。
+            </p>
+
+            <ol class="route-strip" id="route-strip" aria-label="二十二站路线"></ol>
+          </section>
+
+          <aside class="detail-panel" id="detail-panel" aria-live="polite"></aside>
+        </div>
+
+        <section class="visit-notes" aria-labelledby="visit-notes-title">
+          <div class="visit-heading">
+            <p class="section-kicker">Before you go</p>
+            <h2 id="visit-notes-title">出发前的三张便签</h2>
+          </div>
+          <div class="note-grid">
+            <article class="sticky-note yellow-note">
+              <span aria-hidden="true">01</span>
+              <h3>预约免费时段</h3>
+              <p>常规开放 10:00–17:00，周五延长至 20:30。旺季建议提前预约，给安检留出时间。</p>
+              <a href="https://www.britishmuseum.org/visit" target="_blank" rel="noreferrer">查看开放信息 ↗</a>
+            </article>
+            <article class="sticky-note mint-note">
+              <span aria-hidden="true">02</span>
+              <h3>先看当天关闭</h3>
+              <p>展厅会因维护、活动或藏品外借临时关闭。出发当天重新检查，别让旧攻略带错路。</p>
+              <a href="https://www.britishmuseum.org/visit" target="_blank" rel="noreferrer">检查展厅状态 ↗</a>
+            </article>
+            <article class="sticky-note pink-note">
+              <span aria-hidden="true">03</span>
+              <h3>房间号最重要</h3>
+              <p>现场问路时直接说英文藏品名与 Room 编号。木乃伊路线页标 Room 63，藏品库现标 Room 62，请看现场标牌。</p>
+              <a href="https://www.britishmuseum.org/visit/museum-map" target="_blank" rel="noreferrer">打开官方地图 ↗</a>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Made for my UK adventure <span aria-hidden="true">♥</span> 2026</p>
+      <div>
+        <a href="https://www.britishmuseum.org/visit/object-trails/three-hours-museum" target="_blank" rel="noreferrer">路线来源</a>
+        <button id="footer-credits" type="button">图片与授权</button>
+      </div>
+    </footer>
+
+    <dialog id="credits-dialog" class="credits-dialog" aria-labelledby="credits-title">
+      <div class="dialog-top">
+        <div>
+          <p class="section-kicker">Image credits</p>
+          <h2 id="credits-title">图片与授权</h2>
+        </div>
+        <button id="close-credits" class="dialog-close" type="button" aria-label="关闭图片鸣谢">×</button>
+      </div>
+      <p class="credits-intro">
+        藏品事实与路线来自大英博物馆；实拍图片来自 Wikimedia Commons，并按各自开放许可证本地压缩展示。点击名称可查看原始文件与完整授权记录。
+      </p>
+      <ol id="credits-list" class="credits-list"></ol>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </body>
 </html>
