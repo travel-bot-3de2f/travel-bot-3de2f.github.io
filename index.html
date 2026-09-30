@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="一份为首次参观准备的大英博物馆三小时路线：22 件标志性藏品、互动 2.5D 地图与真实图片。"
+      content="一份从上午逛到下午的大英博物馆世界文明主线：卡通分层地图、12 个标志看点与真实藏品图片；另保留馆方三小时路线。"
     />
     <meta name="theme-color" content="#f6efd9" />
     <title>我的英国漫游地图</title>
@@ -85,7 +85,7 @@
 
             <button class="map-pin active-pin" style="--x: 47%; --y: 28%" data-attraction="british-museum" type="button">
               <span class="pin-icon museum-icon" aria-hidden="true">🏛</span>
-              <span class="pin-label"><strong>大英博物馆</strong><small>3 小时路线 · 已解锁</small></span>
+              <span class="pin-label"><strong>大英博物馆</strong><small>一日主线 · 已解锁</small></span>
             </button>
 
             <button class="map-pin upcoming-pin" style="--x: 38%; --y: 63%" data-attraction="big-ben" type="button" aria-label="大本钟，即将解锁">
@@ -115,8 +115,8 @@
 
         <div class="home-stats" aria-label="旅行地图状态">
           <div><strong>01</strong><span>已解锁攻略</span></div>
-          <div><strong>22</strong><span>标志性藏品</span></div>
-          <div><strong>3h</strong><span>预计参观时间</span></div>
+          <div><strong>2</strong><span>可选路线</span></div>
+          <div><strong>1 day</strong><span>默认慢逛</span></div>
         </div>
       </section>
 
@@ -129,41 +129,58 @@
 
         <div class="museum-hero">
           <div class="museum-hero-copy">
-            <p class="eyebrow"><span>02</span> 首次参观路线</p>
-            <h1 id="museum-title">大英博物馆<br /><em>三小时寻宝记</em></h1>
-            <p>
-              跟随馆方 22 站路线，从中世纪星盘走到江户武士甲胄。点亮地图上的圆点，一站一站完成这场横跨世界文明的散步。
+            <p class="eyebrow" id="hero-eyebrow"><span>02</span> 一日世界文明主线</p>
+            <h1 id="museum-title">大英博物馆<br /><em>不能只留两小时</em></h1>
+            <p id="hero-description">
+              上午跟讲解走世界文明主线，下午把时间留给真正感兴趣的展厅。从大中庭认路，再看权力、信仰、死亡、审美与记忆怎样被一件件保存下来。
             </p>
-            <div class="hero-tags" aria-label="路线摘要">
-              <span>⏱ 约 3 小时</span>
-              <span>✦ 22 站</span>
-              <span>↕ 4 个楼层</span>
+            <div class="hero-tags" id="hero-tags" aria-label="路线摘要">
+              <span>☀ 上午到下午</span>
+              <span>✦ 12 个看点</span>
+              <span>↕ 3 张馆方楼层图</span>
               <span>£ 免费参观</span>
             </div>
           </div>
           <div class="museum-ticket" aria-label="路线票根">
             <span>ADMIT ONE</span>
             <strong>BM</strong>
-            <p>THE GREAT<br />COURT ROUTE</p>
-            <small>№ 2026 · 22 STOPS</small>
+            <p id="ticket-title">A DAY OF<br />CIVILISATIONS</p>
+            <small id="ticket-meta">№ 2026 · 12 STOPS</small>
           </div>
         </div>
 
-        <aside id="closure-alert" class="closure-alert" hidden>
+        <aside id="closure-alert" class="closure-alert">
           <span class="alert-icon" aria-hidden="true">!</span>
           <div>
-            <strong>2026 年 10 月上旬特别提醒</strong>
-            <p>
-              9 月 28 日至 10 月 9 日，Room 55 暂停开放、Room 56 部分开放。第 18–19 站请以现场指示为准，可把时间留给第 17 站机械帆船钟。
-            </p>
+            <strong id="alert-title">先看当天开放状态</strong>
+            <p id="alert-copy">Room 7、9、10 常有缩短开放时段，《女史箴图》出于保护只短期展出；出发当天请再次核对馆方页面与现场标牌。</p>
           </div>
           <a href="https://www.britishmuseum.org/visit" target="_blank" rel="noreferrer">查看今日状态 ↗</a>
         </aside>
 
+        <section class="route-chooser" aria-labelledby="route-chooser-title">
+          <div class="route-chooser-heading">
+            <p class="section-kicker">Choose your pace</p>
+            <h2 id="route-chooser-title">先选今天的走法</h2>
+          </div>
+          <div class="route-options" id="route-options">
+            <button class="route-option" type="button" data-route="journal" aria-pressed="true">
+              <span class="route-option-index">A · 首选</span>
+              <strong>一日世界文明主线</strong>
+              <small>上午跟讲解，下午深挖中国馆；12 个真实看点，走得慢也看得懂。</small>
+            </button>
+            <button class="route-option" type="button" data-route="official" aria-pressed="false">
+              <span class="route-option-index">B · 备选</span>
+              <strong>馆方三小时路线</strong>
+              <small>保留原来的 22 站官方 object trail，适合时间有限、想多看代表作。</small>
+            </button>
+          </div>
+        </section>
+
         <div class="route-toolbar">
           <div>
             <p class="section-kicker">Interactive route</p>
-            <h2>今天从哪里开始？</h2>
+            <h2 id="route-heading">从大中庭先认路</h2>
           </div>
           <div class="progress-card" aria-label="参观进度">
             <div class="progress-copy"><span id="progress-count">0 / 22</span><small>已打卡</small></div>
@@ -176,7 +193,7 @@
           <section class="map-panel" aria-labelledby="map-panel-title">
             <div class="panel-heading">
               <div>
-                <span class="mini-label">2.5D FLOOR GUIDE</span>
+                <span class="mini-label" id="map-label">GROUND · UPPER · LOWER</span>
                 <h3 id="map-panel-title">路线地图</h3>
               </div>
               <div class="floor-tabs" id="floor-tabs" aria-label="筛选楼层"></div>
@@ -184,22 +201,24 @@
 
             <div class="museum-map-shell">
               <svg id="museum-map" class="museum-map" viewBox="0 0 900 560" role="img" aria-labelledby="museum-map-title museum-map-desc">
-                <title id="museum-map-title">大英博物馆三小时路线楼层示意图</title>
-                <desc id="museum-map-desc">四个楼层与二十二个可点击藏品站点，路线从一号站连接至二十二号站。</desc>
+                <title id="museum-map-title">大英博物馆 Ground、Upper、Lower 三张楼层图</title>
+                <desc id="museum-map-desc">按馆方结构重绘，标出主要展厅、环廊、入口、楼梯及跨层路线。</desc>
               </svg>
+              <p class="map-pan-hint" aria-hidden="true">↔ 左右滑动查看完整楼层</p>
               <div class="map-legend" aria-hidden="true">
                 <span><i class="legend-dot current"></i>当前</span>
                 <span><i class="legend-dot done"></i>已打卡</span>
                 <span><i class="legend-line"></i>路线</span>
+                <span><i class="legend-stair">▰</i>楼梯节点</span>
               </div>
             </div>
 
             <p class="map-disclaimer">
-              这是按房间关系绘制的路线示意图，并非精确室内导航。馆内临时调整时，请以现场标识与
+              这是按馆方 Ground、Upper、Lower 三张图重绘的寻路示意；保留主要展厅轮廓、环廊、入口及西／北／东／南楼梯，字母相同的楼梯表示上下层对应节点。Ground 图内部同时包含 Level 0、1、2。馆内临时调整时，请以现场标识与
               <a href="https://www.britishmuseum.org/visit/museum-map" target="_blank" rel="noreferrer">官方地图 ↗</a> 为准。
             </p>
 
-            <ol class="route-strip" id="route-strip" aria-label="二十二站路线"></ol>
+            <ol class="route-strip" id="route-strip" aria-label="路线站点"></ol>
           </section>
 
           <aside class="detail-panel" id="detail-panel" aria-live="polite"></aside>
@@ -226,7 +245,7 @@
             <article class="sticky-note pink-note">
               <span aria-hidden="true">03</span>
               <h3>房间号最重要</h3>
-              <p>现场问路时直接说英文藏品名与 Room 编号。木乃伊路线页标 Room 63，藏品库现标 Room 62，请看现场标牌。</p>
+              <p>现场问路时直接说英文藏品名与 Room 编号。地图是按馆方楼层关系重绘的手账示意，最终仍请看现场标牌。</p>
               <a href="https://www.britishmuseum.org/visit/museum-map" target="_blank" rel="noreferrer">打开官方地图 ↗</a>
             </article>
           </div>
@@ -237,7 +256,7 @@
     <footer class="site-footer">
       <p>Made for my UK adventure <span aria-hidden="true">♥</span> 2026</p>
       <div>
-        <a href="https://www.britishmuseum.org/visit/object-trails/three-hours-museum" target="_blank" rel="noreferrer">路线来源</a>
+        <a id="footer-route-source" href="https://www.britishmuseum.org/visit/museum-map" target="_blank" rel="noreferrer">地图与展厅来源</a>
         <button id="footer-credits" type="button">图片与授权</button>
       </div>
     </footer>

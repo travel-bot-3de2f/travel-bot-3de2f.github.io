@@ -441,12 +441,252 @@ const museumStops = [
   },
 ];
 
-const STORAGE_KEY = "travel-guide:british-museum:visited:v1";
-const SVG_NS = "http://www.w3.org/2000/svg";
-const floorOrder = ["all", "L0", "L-2", "L3", "L5"];
-const floorLabels = { all: "全部", L0: "L0", "L-2": "L-2", L3: "L3", L5: "L5" };
+const journalStops = [
+  {
+    id: 1,
+    mapLevel: "ground",
+    level: "Level 0",
+    room: "Great Court",
+    titleZh: "大中庭：先把方向感找回来",
+    titleEn: "The Great Court",
+    era: "2000 年启用",
+    origin: "大英博物馆中心",
+    description: "大中庭以原大英图书馆圆形阅览室为中心，玻璃屋顶把原本分散的庭院连成公共空间。它不是一件藏品，却是整条路线最重要的坐标：先确认四组主楼梯、问讯台和各展厅方向，再开始看展。",
+    observe: "站在入口面向圆形阅览室：4 号埃及馆在西侧，6–10 号亚述馆继续向西，18 号帕特农馆在最西侧；上楼前记住回到中庭的方向。",
+    x: 565,
+    y: 414,
+    source: "https://www.britishmuseum.org/visit/museum-map",
+    image: "assets/images/day-route/court.webp",
+    photo: {
+      author: "Andy Li",
+      license: "CC0",
+      licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+      url: "https://commons.wikimedia.org/wiki/File:Great_Court,_British_Museum_2024-12-20.jpg",
+    },
+  },
+  {
+    id: 2,
+    mapLevel: "ground",
+    level: "Level 0",
+    room: "Room 4",
+    titleZh: "罗塞塔石碑",
+    titleEn: "The Rosetta Stone",
+    era: "公元前 196 年",
+    origin: "拉希德（罗塞塔），埃及",
+    description: "同一道祭司法令用圣书体、世俗体和古希腊文刻写。学者借助仍可读懂的古希腊文建立对应关系，让失传已久的古埃及文字重新被理解；它因此成为现代埃及学的关键入口。",
+    observe: "从上到下辨认三种文字的密度与笔画差异。它只是原来更大石碑的一块残片，价值在文字关系，而不是石材本身。",
+    x: 405,
+    y: 354,
+    source: museumStops[4].source,
+    image: "assets/images/stops/stop-05.webp",
+    photo: museumStops[4].photo,
+  },
+  {
+    id: 3,
+    mapLevel: "ground",
+    level: "Level 0",
+    room: "Room 4",
+    titleZh: "拉美西斯二世巨像胸像",
+    titleEn: "Bust of Ramesses the Great",
+    era: "约公元前 1250 年",
+    origin: "底比斯，埃及",
+    description: "这尊约 7.5 吨的花岗岩胸像原属拉美西姆神庙的一座巨型坐像。它用理想化而对称的面容制造永恒王权，也让人一进入埃及馆就感到帝国尺度。",
+    observe: "先退后看体量，再走近看肩背后的王名与象形文字。比较脸部的平静与整块石料的巨大重量。",
+    x: 421,
+    y: 386,
+    source: museumStops[5].source,
+    image: "assets/images/stops/stop-06.webp",
+    photo: museumStops[5].photo,
+  },
+  {
+    id: 4,
+    mapLevel: "ground",
+    level: "Level 0",
+    room: "Rooms 6–8",
+    titleZh: "拉马苏人面翼牛",
+    titleEn: "Human-headed winged bull (Lamassu)",
+    era: "约公元前 865–860 年",
+    origin: "尼姆鲁德，今伊拉克",
+    description: "人头、鸟翼与牛身组合成守护王宫门道的超自然形象：人的智慧、鸟的速度与牛的力量集中在同一个身体。它既保护入口，也让来访者在跨进宫殿前先感到君王威势。",
+    observe: "绕到斜侧面数腿：亚述雕刻家让它从正面像稳稳站立，从侧面又像正在行走。部分拉马苏展品会因维护调整，以现场开放为准。",
+    x: 350,
+    y: 438,
+    source: "https://www.britishmuseum.org/collection/object/W_1850-1228-2",
+    image: "assets/images/day-route/lamassu.webp",
+    photo: {
+      author: "APK",
+      license: "CC BY 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
+      url: "https://commons.wikimedia.org/wiki/File:Lamassu_from_the_Throne_Room,_North-West_Palace_at_Nimrud,_British_Museum.jpg",
+    },
+  },
+  {
+    id: 5,
+    mapLevel: "ground",
+    level: "Level 0",
+    room: "Room 10",
+    titleZh: "亚述狮子狩猎浮雕",
+    titleEn: "Assyrian Lion Hunt Reliefs",
+    era: "公元前 645–635 年",
+    origin: "尼尼微，今伊拉克",
+    description: "浮雕来自亚述巴尼拔的北宫。宫廷狩猎不是普通娱乐，而是一场政治表演：国王制服狮子，象征王权战胜混乱、维持世界秩序。",
+    observe: "不要只看国王。受伤狮子的肌肉、动作与表情极其细腻，正是这组权力宣传里最有生命感、也最令人难忘的部分。",
+    x: 288,
+    y: 392,
+    source: museumStops[2].source,
+    image: "assets/images/stops/stop-03.webp",
+    photo: museumStops[2].photo,
+  },
+  {
+    id: 6,
+    mapLevel: "ground",
+    level: "Level 0",
+    room: "Room 18",
+    titleZh: "帕特农神庙雕塑",
+    titleEn: "Parthenon Sculptures",
+    era: "公元前 438–432 年",
+    origin: "雅典卫城，希腊",
+    description: "这些大理石雕塑原本属于帕特农神庙，包括山墙雕像与表现泛雅典娜节游行的浮雕。它们让古典人体比例与衣褶处理近距离可见，也持续处在所有权与归还讨论的中心。",
+    observe: "从正面看人物关系，再绕到侧面看躯干扭转、马匹节奏与贴体衣褶。看过雅典卫城的人会立刻感到空间语境的变化。",
+    x: 124,
+    y: 405,
+    source: museumStops[3].source,
+    image: "assets/images/stops/stop-04.webp",
+    photo: museumStops[3].photo,
+  },
+  {
+    id: 7,
+    mapLevel: "upper",
+    level: "Level 3",
+    room: "Rooms 62–63",
+    titleZh: "卡特贝特木乃伊与来世观",
+    titleEn: "Mummy of Katebet",
+    era: "约公元前 1330–1250 年",
+    origin: "底比斯，埃及",
+    description: "卡特贝特是卡纳克神庙的阿蒙女歌者。木乃伊、面具、棺椁与随葬品共同说明：保存身体、让名字延续、准备供奉并等待灵魂复活，是一整套关于来世的生命观，而不是单纯的猎奇技术。",
+    observe: "看镀金面具、胸饰、假手臂和腿边的沙布提，再比较周围棺椁上的名字、神祇与仪式图像。房间号可能随陈列调整。",
+    x: 421,
+    y: 751,
+    source: museumStops[20].source,
+    image: "assets/images/stops/stop-21.webp",
+    photo: museumStops[20].photo,
+  },
+  {
+    id: 8,
+    mapLevel: "ground",
+    level: "Level 1",
+    room: "Room 33",
+    titleZh: "唐代三彩墓葬俑",
+    titleEn: "Tang dynasty tomb figures",
+    era: "公元 728 年前后",
+    origin: "洛阳，相传出自刘庭训墓",
+    description: "这组大型三彩俑包括镇墓兽、天王、文官、马、骆驼与牵夫。釉色、服饰和外来动物共同勾勒出唐代都城生活、墓葬观念与丝绸之路交流。",
+    observe: "把人物、马和骆驼放在一起看：身份通过头冠与姿态区分，三彩釉则在烧制时自然流淌，每一处色斑都不完全可控。",
+    x: 657,
+    y: 153,
+    source: "https://www.britishmuseum.org/collection/object/A_1936-1012-221",
+    image: "assets/images/day-route/tang.webp",
+    photo: {
+      author: "Mike Peel",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      url: "https://commons.wikimedia.org/wiki/File:Chinese_Tang_tomb_figures,_British_Museum.jpg",
+    },
+  },
+  {
+    id: 9,
+    mapLevel: "ground",
+    level: "Level 1",
+    room: "Room 33",
+    titleZh: "康侯簋：青铜礼器",
+    titleEn: "Kang Hou Gui",
+    era: "约公元前 11 世纪",
+    origin: "中国西周早期",
+    description: "簋是祭祀祖先时盛放食物的青铜礼器。康侯簋的内壁铭文记录了周王平定商人叛乱并封赏康侯的事件：礼器不仅用于沟通祖先，也把政治记忆铸进金属，留给后世阅读。",
+    observe: "看兽首大耳、腹部密集竖纹，再从上方找器内铭文。刚铸成时青铜偏金色，今天的绿色来自漫长氧化。",
+    x: 591,
+    y: 153,
+    source: "https://www.britishmuseum.org/collection/object/A_1977-0404-1",
+    image: "assets/images/day-route/bronze-gui.webp",
+    photo: {
+      author: "Wikimedia Commons contributor",
+      license: "CC0",
+      licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+      url: "https://commons.wikimedia.org/wiki/File:British_Museum_Kang_Hou_Gui_Front.jpg",
+    },
+  },
+  {
+    id: 10,
+    mapLevel: "ground",
+    level: "Level 1",
+    room: "Room 33b",
+    titleZh: "良渚文化玉琮",
+    titleEn: "Liangzhu jade cong",
+    era: "约公元前 2500 年",
+    origin: "中国新石器时代晚期",
+    description: "玉琮外方内圆，常见于良渚文化高等级墓葬。没有同时代文字能告诉我们它的确切名称和用途，但漫长的研磨工序、角部神人兽面纹与墓葬位置都说明它具有特殊礼仪意义。",
+    observe: "沿四个角找重复的面纹，再从顶部看方形外壁与圆形孔道。玉不能像木头那样直接削切，主要靠持续研磨成形。",
+    x: 771,
+    y: 208,
+    source: "https://www.britishmuseum.org/collection/object/A_1937-0416-188",
+    image: "assets/images/day-route/jade.webp",
+    photo: {
+      author: "Vassil",
+      license: "CC0",
+      licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+      url: "https://commons.wikimedia.org/wiki/File:British_Museum_Chinese_jade_Neolithic_period_Liangzhu_culture_Cong_11022019_1399.jpg",
+    },
+  },
+  {
+    id: 11,
+    mapLevel: "ground",
+    level: "Level 2",
+    room: "Room 95",
+    titleZh: "中国瓷器：白瓷到大维德瓶",
+    titleEn: "The David Vases",
+    era: "元至正十一年（1351）",
+    origin: "景德镇，中国",
+    description: "Room 95 可以把白瓷、单色釉与青花放在同一条技术线上看。这对青花龙纹象耳瓶的长铭文记录了 1351 年的供奉人、日期和道观，因此成为元代青花瓷断代坐标；同馆唐代邢窑白瓷则能看出更早的纯净胎釉追求。",
+    observe: "先在白瓷柜看形体、胎色与暗花，再到大维德瓶找颈部铭文、象耳、云龙、凤凰与缠枝牡丹。它们是带有明确宗教供奉信息的祭器。",
+    x: 500,
+    y: 87,
+    source: "https://www.britishmuseum.org/collection/object/A_PDF-B-613",
+    image: "assets/images/day-route/david.webp",
+    photo: {
+      author: "BabelStone",
+      license: "CC BY-SA 3.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      url: "https://commons.wikimedia.org/wiki/File:The_David_Vases,_1351.jpg",
+    },
+  },
+  {
+    id: 12,
+    mapLevel: "upper",
+    level: "Level 4",
+    room: "Room 91a · 限时展出",
+    titleZh: "《女史箴图》",
+    titleEn: "The Admonitions Scroll",
+    era: "约公元 400–700 年",
+    origin: "中国，传统归于顾恺之体系",
+    description: "现存画卷以九段图像阐释张华的《女史箴》，一般被视为公元 5 至 7 世纪的早期摹本，是研究早期中国人物叙事画的里程碑。它后来进入清宫收藏，并留下历代印记与题跋。",
+    observe: "重点看细而连贯的线条怎样塑造衣纹、姿态与人物关系，不必只追求颜色。原作因保护需要通常每年仅短期展出；Room 33 常设数字屏可全年查看全卷。",
+    x: 776,
+    y: 667,
+    source: "https://www.britishmuseum.org/collection/object/A_1903-0408-0-1",
+    image: "assets/images/day-route/admonitions.webp",
+    photo: {
+      author: "Gu Kaizhi (attributed), digital reproduction",
+      license: "Public domain",
+      licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/",
+      url: "https://commons.wikimedia.org/wiki/File:Admonitions_Scroll.jpg",
+    },
+  },
+];
 
-const floorDefinitions = {
+const STORAGE_PREFIX = "travel-guide:british-museum:visited:v2";
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+const officialFloorDefinitions = {
   L0: {
     points: "75,125 390,32 656,135 340,238",
     side: "75,125 340,238 340,251 75,138",
@@ -484,10 +724,49 @@ const floorDefinitions = {
   },
 };
 
+const routeConfigs = {
+  journal: {
+    stops: journalStops,
+    floorOrder: ["all", "ground", "upper", "lower"],
+    floorLabels: { all: "全部", ground: "Ground", upper: "Upper", lower: "Lower" },
+    eyebrow: "一日世界文明主线",
+    title: "大英博物馆<br /><em>不能只留两小时</em>",
+    description:
+      "上午跟讲解走世界文明主线，下午把时间留给真正感兴趣的展厅。从大中庭认路，再看权力、信仰、死亡、审美与记忆怎样被一件件保存下来。",
+    tags: ["☀ 上午到下午", "✦ 12 个看点", "↕ 3 张馆方楼层图", "£ 免费参观"],
+    ticketTitle: "A DAY OF<br />CIVILISATIONS",
+    ticketMeta: "№ 2026 · 12 STOPS",
+    heading: "从大中庭先认路",
+    mapLabel: "GROUND · UPPER · LOWER",
+    documentTitle: "大英博物馆一日世界文明主线 · 我的英国漫游手账",
+    source: "https://www.britishmuseum.org/visit/museum-map",
+  },
+  official: {
+    stops: museumStops,
+    floorOrder: ["all", "L0", "L-2", "L3", "L5"],
+    floorLabels: { all: "全部", L0: "L0", "L-2": "L-2", L3: "L3", L5: "L5" },
+    eyebrow: "馆方三小时路线 · 第二选择",
+    title: "大英博物馆<br /><em>三小时寻宝记</em>",
+    description:
+      "时间有限时，跟随馆方 22 站 object trail，从中世纪星盘走到江户武士甲胄，一次浏览横跨世界文明的代表作。",
+    tags: ["⏱ 约 3 小时", "✦ 22 站", "↕ 4 个楼层", "£ 免费参观"],
+    ticketTitle: "THE GREAT<br />COURT ROUTE",
+    ticketMeta: "№ 2026 · 22 STOPS",
+    heading: "今天从哪里开始？",
+    mapLabel: "2.5D FLOOR GUIDE",
+    documentTitle: "大英博物馆三小时寻宝记 · 我的英国漫游手账",
+    source: "https://www.britishmuseum.org/visit/object-trails/three-hours-museum",
+  },
+};
+
 const state = {
-  currentStop: 1,
+  routeName: "journal",
+  currentStops: { journal: 1, official: 1 },
   selectedFloor: "all",
-  visited: loadVisited(),
+  visitedByRoute: {
+    journal: loadVisited("journal", journalStops.length),
+    official: loadVisited("official", museumStops.length),
+  },
   toastTimer: null,
   museumRendered: false,
 };
@@ -505,34 +784,43 @@ const creditsDialog = document.querySelector("#credits-dialog");
 const creditsList = document.querySelector("#credits-list");
 const toast = document.querySelector("#toast");
 
-function loadVisited() {
+function activeConfig() {
+  return routeConfigs[state.routeName];
+}
+
+function activeStops() {
+  return activeConfig().stops;
+}
+
+function activeVisited() {
+  return state.visitedByRoute[state.routeName];
+}
+
+function currentStopId() {
+  return state.currentStops[state.routeName];
+}
+
+function storageKey(routeName) {
+  return `${STORAGE_PREFIX}:${routeName}`;
+}
+
+function loadVisited(routeName, length) {
   try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    return new Set(saved.filter((id) => Number.isInteger(id) && id >= 1 && id <= museumStops.length));
+    const current = localStorage.getItem(storageKey(routeName));
+    const legacy = routeName === "official" ? localStorage.getItem("travel-guide:british-museum:visited:v1") : null;
+    const saved = JSON.parse(current || legacy || "[]");
+    return new Set(saved.filter((id) => Number.isInteger(id) && id >= 1 && id <= length));
   } catch {
     return new Set();
   }
 }
 
 function saveVisited() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...state.visited].sort((a, b) => a - b)));
+  localStorage.setItem(storageKey(state.routeName), JSON.stringify([...activeVisited()].sort((a, b) => a - b)));
 }
 
 function imagePath(stop) {
-  return `assets/images/stops/stop-${String(stop.id).padStart(2, "0")}.webp`;
-}
-
-function isClosurePeriod(date = new Date()) {
-  const start = new Date("2026-09-28T00:00:00+01:00");
-  const end = new Date("2026-10-09T23:59:59+01:00");
-  return date >= start && date <= end;
-}
-
-function temporaryStatus(stop) {
-  if (!isClosurePeriod()) return "";
-  if (stop.id === 18) return "部分开放 · 现场确认";
-  if (stop.id === 19) return "临时关闭至 10/09";
-  return "";
+  return stop.image || `assets/images/stops/stop-${String(stop.id).padStart(2, "0")}.webp`;
 }
 
 function svgElement(tag, attributes = {}) {
@@ -548,8 +836,45 @@ function addSvgText(parent, attributes, text) {
   return node;
 }
 
-function renderMuseumMap() {
+function markerFloor(stop) {
+  return stop.mapLevel || stop.level;
+}
+
+function floorIsMuted(level) {
+  return state.selectedFloor !== "all" && state.selectedFloor !== level;
+}
+
+function appendMarker(stop) {
+  const classes = ["marker-group"];
+  if (stop.id === currentStopId()) classes.push("is-active");
+  if (activeVisited().has(stop.id)) classes.push("is-visited");
+  if (floorIsMuted(markerFloor(stop))) classes.push("is-muted");
+
+  const marker = svgElement("g", {
+    class: classes.join(" "),
+    transform: `translate(${stop.x} ${stop.y})`,
+    tabindex: "0",
+    role: "button",
+    "aria-label": `第 ${stop.id} 站，${stop.titleZh}，${stop.room}`,
+    "data-stop-id": stop.id,
+    "data-level": markerFloor(stop),
+  });
+  marker.append(svgElement("circle", { class: "marker-hit", r: "27" }));
+  marker.append(svgElement("circle", { class: "marker-dot", r: "17" }));
+  addSvgText(marker, { class: "marker-number", x: "0", y: "1" }, String(stop.id));
+  marker.addEventListener("click", () => selectStop(stop.id, { scrollOnMobile: true }));
+  marker.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectStop(stop.id, { scrollOnMobile: true });
+    }
+  });
+  museumMap.append(marker);
+}
+
+function renderOfficialMap() {
   museumMap.replaceChildren();
+  museumMap.setAttribute("viewBox", "0 0 900 560");
 
   const title = svgElement("title", { id: "museum-map-title" });
   title.textContent = "大英博物馆三小时路线楼层示意图";
@@ -557,9 +882,9 @@ function renderMuseumMap() {
   description.textContent = "四个楼层与二十二个可点击藏品站点，路线从一号站连接至二十二号站。";
   museumMap.append(title, description);
 
-  Object.entries(floorDefinitions).forEach(([level, floor]) => {
+  Object.entries(officialFloorDefinitions).forEach(([level, floor]) => {
     const group = svgElement("g", {
-      class: `floor-group ${state.selectedFloor !== "all" && state.selectedFloor !== level ? "is-muted" : ""}`,
+      class: `floor-group ${floorIsMuted(level) ? "is-muted" : ""}`,
       "data-level": level,
     });
     const shadowPoints = floor.points
@@ -588,7 +913,7 @@ function renderMuseumMap() {
       .join(" ");
     museumMap.append(
       svgElement("polyline", {
-        class: `route-segment ${state.selectedFloor !== "all" && state.selectedFloor !== level ? "is-muted" : ""}`,
+        class: `route-segment ${floorIsMuted(level) ? "is-muted" : ""}`,
         points,
         "data-level": level,
       }),
@@ -623,41 +948,296 @@ function renderMuseumMap() {
     );
   });
 
-  museumStops.forEach((stop) => {
-    const classes = ["marker-group"];
-    if (stop.id === state.currentStop) classes.push("is-active");
-    if (state.visited.has(stop.id)) classes.push("is-visited");
-    if (temporaryStatus(stop)) classes.push("has-alert");
-    if (state.selectedFloor !== "all" && state.selectedFloor !== stop.level) classes.push("is-muted");
+  museumStops.forEach(appendMarker);
+}
 
-    const marker = svgElement("g", {
-      class: classes.join(" "),
-      transform: `translate(${stop.x} ${stop.y})`,
-      tabindex: "0",
-      role: "button",
-      "aria-label": `第 ${stop.id} 站，${stop.titleZh}，${stop.room}`,
-      "data-stop-id": stop.id,
-    });
-    marker.append(svgElement("circle", { class: "marker-hit", r: "27" }));
-    marker.append(svgElement("circle", { class: "marker-dot", r: "17" }));
-    addSvgText(marker, { class: "marker-number", x: "0", y: "1" }, String(stop.id));
-    marker.addEventListener("click", () => selectStop(stop.id, { scrollOnMobile: true }));
-    marker.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        selectStop(stop.id, { scrollOnMobile: true });
-      }
-    });
-    museumMap.append(marker);
+function addJournalRoom(parent, { x, y, width, height, label, tone = "sand", vertical = false, dashed = false }) {
+  const room = svgElement("g", { class: `journal-room journal-room-${tone} ${dashed ? "is-dashed" : ""}` });
+  room.append(svgElement("rect", { x, y, width, height, rx: "5" }));
+  addSvgText(
+    room,
+    {
+      class: `journal-room-number ${vertical ? "is-vertical" : ""}`,
+      x: x + width / 2,
+      y: y + height / 2 + 1,
+      transform: vertical ? `rotate(90 ${x + width / 2} ${y + height / 2})` : "",
+    },
+    label,
+  );
+  parent.append(room);
+}
+
+function addJournalFloorTitle(parent, { title, subtitle, x, y, width = 220 }) {
+  const label = svgElement("g", { class: "journal-floor-title" });
+  label.append(svgElement("rect", { x, y, width, height: "42", rx: "18" }));
+  addSvgText(label, { class: "journal-floor-title-main", x: x + 15, y: y + 17 }, title);
+  addSvgText(label, { class: "journal-floor-title-sub", x: x + 15, y: y + 32 }, subtitle);
+  parent.append(label);
+}
+
+function addJournalTransfer(parent, { x, y, label, width = 180 }) {
+  const transfer = svgElement("g", { class: "journal-transfer" });
+  transfer.append(svgElement("rect", { x, y, width, height: "27", rx: "13" }));
+  addSvgText(transfer, { x: x + 12, y: y + 18 }, label);
+  parent.append(transfer);
+}
+
+function addJournalStair(parent, { x, y, key, label, levels, compact = false }) {
+  const stair = svgElement("g", {
+    class: "journal-stair",
+    role: "img",
+    "aria-label": `${label}，${levels}`,
+    transform: `translate(${x} ${y})`,
   });
+  const size = compact ? 27 : 32;
+  stair.append(svgElement("rect", { class: "journal-stair-box", width: size, height: size, rx: "5" }));
+  stair.append(
+    svgElement("path", {
+      class: "journal-stair-steps",
+      d: compact ? "M5 21h5v-4h5v-4h5V9h4" : "M6 25h5v-5h5v-5h5v-5h5",
+    }),
+  );
+  const badgeX = size - 2;
+  stair.append(svgElement("circle", { class: "journal-stair-badge", cx: badgeX, cy: "2", r: "8" }));
+  addSvgText(stair, { class: "journal-stair-key", x: badgeX, y: "2" }, key);
+  addSvgText(stair, { class: "journal-stair-label", x: size / 2, y: size + 11 }, label);
+  addSvgText(stair, { class: "journal-stair-levels", x: size / 2, y: size + 21 }, levels);
+  parent.append(stair);
+}
+
+function addJournalLift(parent, { x, y, levels }) {
+  const lift = svgElement("g", { class: "journal-lift", transform: `translate(${x} ${y})` });
+  lift.append(svgElement("rect", { width: "25", height: "25", rx: "5" }));
+  addSvgText(lift, { x: "12.5", y: "13" }, "↕");
+  if (levels) addSvgText(lift, { class: "journal-lift-levels", x: "12.5", y: "34" }, levels);
+  parent.append(lift);
+}
+
+function addJournalRoutePath(parent, { d, className = "journal-route-walk" }) {
+  parent.append(
+    svgElement("path", {
+      class: `route-segment journal-route ${className}`,
+      d,
+      "marker-end": "url(#journal-route-arrow)",
+    }),
+  );
+}
+
+function addJournalPathLabel(parent, { x, y, label, width = 132 }) {
+  const note = svgElement("g", { class: "journal-path-label" });
+  note.append(svgElement("rect", { x, y, width, height: "24", rx: "12" }));
+  addSvgText(note, { x: x + width / 2, y: y + 16 }, label);
+  parent.append(note);
+}
+
+function addJournalMapDefs() {
+  const defs = svgElement("defs");
+  const marker = svgElement("marker", {
+    id: "journal-route-arrow",
+    viewBox: "0 0 10 10",
+    refX: "8",
+    refY: "5",
+    markerWidth: "6",
+    markerHeight: "6",
+    orient: "auto-start-reverse",
+  });
+  marker.append(svgElement("path", { d: "M 0 0 L 10 5 L 0 10 z" }));
+  defs.append(marker);
+  museumMap.append(defs);
+}
+
+function renderJournalMap() {
+  museumMap.replaceChildren();
+  museumMap.setAttribute("viewBox", "0 0 900 1218");
+
+  const title = svgElement("title", { id: "museum-map-title" });
+  title.textContent = "大英博物馆 Ground、Upper、Lower 三张楼层图";
+  const description = svgElement("desc", { id: "museum-map-desc" });
+  description.textContent =
+    "按馆方地图结构重绘，标出主要展厅、环廊、四组楼梯和上下楼衔接。路线先走 Ground Level 0，经西楼梯到木乃伊展厅，再由北楼梯前往中国馆和瓷器馆。";
+  museumMap.append(title, description);
+  addJournalMapDefs();
+
+  const ground = svgElement("g", {
+    class: `journal-floor-group ${floorIsMuted("ground") ? "is-muted" : ""}`,
+    "data-level": "ground",
+  });
+  ground.append(svgElement("rect", { class: "journal-floor-card journal-ground-card", x: "12", y: "12", width: "876", height: "540", rx: "28" }));
+  addJournalFloorTitle(ground, {
+    title: "GROUND FLOOR",
+    subtitle: "Level -1 · 0 · 1 · 2",
+    x: 34,
+    y: 30,
+    width: 230,
+  });
+  const compass = svgElement("g", { class: "journal-compass", transform: "translate(842 43)" });
+  compass.append(svgElement("path", { d: "M0 20 8 0l8 20-8-5z" }));
+  addSvgText(compass, { x: "8", y: "32" }, "N");
+  ground.append(compass);
+
+  addSvgText(ground, { class: "journal-level-caption", x: "344", y: "89" }, "LEVEL 2");
+  addJournalRoom(ground, { x: 450, y: 65, width: 130, height: 44, label: "95 · CERAMICS", tone: "sky" });
+  addJournalRoom(ground, { x: 590, y: 65, width: 110, height: 44, label: "67", tone: "sky" });
+  ground.append(svgElement("path", { class: "journal-level-link", d: "M585 109v17" }));
+  addJournalStair(ground, { x: 569, y: 93, key: "N²", label: "北楼梯", levels: "L1 ↕ L2", compact: true });
+
+  addSvgText(ground, { class: "journal-level-caption", x: "344", y: "155" }, "LEVEL 1");
+  addJournalRoom(ground, { x: 430, y: 131, width: 74, height: 45, label: "33a", tone: "mint" });
+  addJournalRoom(ground, { x: 511, y: 131, width: 231, height: 45, label: "33 · CHINA", tone: "mint" });
+  addJournalRoom(ground, { x: 749, y: 131, width: 46, height: 116, label: "33b", tone: "mint", vertical: true });
+  const keyB = svgElement("g", { class: "journal-official-key" });
+  keyB.append(svgElement("rect", { x: "699", y: "137", width: "22", height: "20", rx: "5" }));
+  addSvgText(keyB, { x: "710", y: "151" }, "B");
+  ground.append(keyB);
+  ground.append(svgElement("path", { class: "journal-level-link", d: "M585 176v52" }));
+  addJournalStair(ground, { x: 569, y: 181, key: "N¹", label: "北楼梯", levels: "L0 ↕ L1", compact: true });
+  addJournalLift(ground, { x: 608, y: 183, levels: "L0–L2" });
+
+  addSvgText(ground, { class: "journal-level-caption", x: "344", y: "231" }, "LEVEL -1");
+  addJournalRoom(ground, { x: 430, y: 211, width: 312, height: 32, label: "Anthropology Library", tone: "quiet" });
+
+  addSvgText(ground, { class: "journal-level-caption", x: "54", y: "275" }, "LEVEL 0 · MAIN GALLERIES");
+  ground.append(svgElement("path", { class: "journal-building-outline", d: "M48 316H208V286h242v-27h345v55h42v201H700v25H246v-25H48z" }));
+  addJournalRoom(ground, { x: 60, y: 344, width: 115, height: 157, label: "18 · PARTHENON", tone: "coral", vertical: true });
+  addJournalRoom(ground, { x: 181, y: 371, width: 39, height: 96, label: "17", tone: "coral", vertical: true });
+  addJournalRoom(ground, { x: 181, y: 473, width: 39, height: 41, label: "16", tone: "coral" });
+  addJournalRoom(ground, { x: 226, y: 300, width: 38, height: 55, label: "20", tone: "quiet" });
+  addJournalRoom(ground, { x: 226, y: 361, width: 38, height: 70, label: "19", tone: "quiet", vertical: true });
+  addJournalRoom(ground, { x: 270, y: 318, width: 47, height: 122, label: "9", tone: "ochre", vertical: true });
+  addJournalRoom(ground, { x: 270, y: 446, width: 54, height: 68, label: "10", tone: "ochre" });
+  addJournalRoom(ground, { x: 324, y: 318, width: 46, height: 73, label: "8", tone: "ochre" });
+  addJournalRoom(ground, { x: 330, y: 398, width: 40, height: 116, label: "7", tone: "ochre", vertical: true });
+  addJournalRoom(ground, { x: 377, y: 313, width: 61, height: 164, label: "4 · EGYPT", tone: "sand", vertical: true });
+  addJournalRoom(ground, { x: 331, y: 483, width: 107, height: 31, label: "6", tone: "ochre" });
+  addJournalRoom(ground, { x: 418, y: 263, width: 214, height: 44, label: "30", tone: "quiet" });
+  addJournalRoom(ground, { x: 649, y: 263, width: 76, height: 48, label: "24", tone: "sky" });
+  addJournalRoom(ground, { x: 731, y: 276, width: 48, height: 39, label: "26", tone: "sky" });
+  addJournalRoom(ground, { x: 785, y: 276, width: 42, height: 39, label: "27", tone: "sky" });
+  addJournalRoom(ground, { x: 765, y: 322, width: 62, height: 157, label: "1", tone: "quiet", vertical: true });
+  addJournalRoom(ground, { x: 714, y: 485, width: 113, height: 29, label: "2 · 2a", tone: "quiet" });
+  addJournalRoom(ground, { x: 619, y: 485, width: 72, height: 29, label: "3", tone: "quiet" });
+  addJournalRoom(ground, { x: 246, y: 520, width: 82, height: 20, label: "13", tone: "coral" });
+  addJournalRoom(ground, { x: 334, y: 520, width: 104, height: 20, label: "6", tone: "ochre" });
+  ground.append(svgElement("rect", { class: "journal-court", x: "447", y: "315", width: "266", height: "199", rx: "96" }));
+  ground.append(svgElement("circle", { class: "journal-reading-room", cx: "580", cy: "406", r: "61" }));
+  addSvgText(ground, { class: "journal-court-label", x: "580", y: "399" }, "READING ROOM");
+  addSvgText(ground, { class: "journal-court-label is-secondary", x: "580", y: "422" }, "GREAT COURT 环廊");
+  ground.append(svgElement("path", { class: "journal-corridor", d: "M438 331h24v146h-24zM370 378h77v24h-77zM220 378h50v24h-50zM175 389h51v24h-51z" }));
+  addJournalStair(ground, { x: 342, y: 278, key: "W", label: "西楼梯", levels: "L0 ↕ L3" });
+  addJournalStair(ground, { x: 707, y: 316, key: "E", label: "东楼梯", levels: "L0 ↕ L3" });
+  addJournalStair(ground, { x: 631, y: 312, key: "N", label: "北楼梯", levels: "L0 ↕ L1" });
+  addJournalStair(ground, { x: 532, y: 480, key: "S", label: "南楼梯", levels: "L0 ↕ L3" });
+  addJournalLift(ground, { x: 669, y: 320, levels: "L0–L3" });
+  ground.append(svgElement("path", { class: "journal-entrance", d: "M520 518h92l-12 21h-68z" }));
+  addSvgText(ground, { class: "journal-entrance-label", x: "566", y: "536" }, "MAIN ENTRANCE · GREAT RUSSELL STREET");
+
+  addJournalRoutePath(ground, { d: "M565 414H470V354H405V386H421V438H350V392H288V405H124" });
+  addJournalRoutePath(ground, { d: "M124 405H239V295H342", className: "journal-route-transfer" });
+  addJournalPathLabel(ground, { x: 65, y: 286, label: "上午主线 01–06", width: 145 });
+  addJournalTransfer(ground, { x: 50, y: 511, label: "06 → W 西楼梯 ↑ Upper L3", width: 188 });
+
+  addJournalRoutePath(ground, { d: "M631 328V228H585V153H657H591H720V208H771", className: "journal-route-return" });
+  addJournalRoutePath(ground, { d: "M771 208H720V153H585V87H500", className: "journal-route-return" });
+  addJournalPathLabel(ground, { x: 650, y: 226, label: "下午中国馆 08–11", width: 160 });
+  addJournalTransfer(ground, { x: 278, y: 49, label: "11 → N 北楼梯 ↑ Upper L4", width: 193 });
+  museumMap.append(ground);
+
+  const upper = svgElement("g", {
+    class: `journal-floor-group ${floorIsMuted("upper") ? "is-muted" : ""}`,
+    "data-level": "upper",
+  });
+  upper.append(svgElement("rect", { class: "journal-floor-card journal-upper-card", x: "12", y: "572", width: "876", height: "463", rx: "28" }));
+  addJournalFloorTitle(upper, {
+    title: "UPPER FLOOR",
+    subtitle: "Level 3 · 4 · 5",
+    x: 34,
+    y: 590,
+    width: 220,
+  });
+  addSvgText(upper, { class: "journal-level-caption", x: "534", y: "611" }, "LEVEL 5");
+  addJournalRoom(upper, { x: 600, y: 590, width: 60, height: 32, label: "94", tone: "sky" });
+  addJournalRoom(upper, { x: 665, y: 590, width: 60, height: 32, label: "93", tone: "sky" });
+  addJournalRoom(upper, { x: 730, y: 590, width: 60, height: 32, label: "92", tone: "sky" });
+  addSvgText(upper, { class: "journal-level-caption", x: "534", y: "657" }, "LEVEL 4");
+  addJournalStair(upper, { x: 555, y: 642, key: "N", label: "北楼梯", levels: "L3 ↕ L5", compact: true });
+  addJournalRoom(upper, { x: 600, y: 644, width: 80, height: 38, label: "90", tone: "mint" });
+  addJournalRoom(upper, { x: 685, y: 644, width: 65, height: 38, label: "90a", tone: "mint" });
+  addJournalRoom(upper, { x: 755, y: 644, width: 67, height: 38, label: "91a*", tone: "mint", dashed: true });
+  addSvgText(upper, { class: "journal-temporary-note", x: "788", y: "694" }, "*历史/限时展位，以现场为准");
+  addSvgText(upper, { class: "journal-level-caption", x: "205", y: "731" }, "LEVEL 3 · MAIN RING");
+  upper.append(svgElement("path", { class: "journal-building-outline", d: "M226 724H650v53h46v202H625v34H286v-34h-60z" }));
+  addJournalRoom(upper, { x: 250, y: 734, width: 68, height: 42, label: "61", tone: "coral" });
+  addJournalRoom(upper, { x: 323, y: 734, width: 75, height: 42, label: "62", tone: "coral" });
+  addJournalRoom(upper, { x: 403, y: 734, width: 75, height: 42, label: "63", tone: "coral" });
+  addJournalRoom(upper, { x: 483, y: 734, width: 75, height: 42, label: "64", tone: "coral" });
+  addJournalRoom(upper, { x: 563, y: 734, width: 68, height: 42, label: "65", tone: "coral" });
+  addJournalRoom(upper, { x: 420, y: 688, width: 70, height: 38, label: "66", tone: "coral" });
+  addJournalRoom(upper, { x: 250, y: 782, width: 42, height: 42, label: "59", tone: "ochre" });
+  addJournalRoom(upper, { x: 226, y: 830, width: 43, height: 149, label: "69–73", tone: "sand", vertical: true });
+  addJournalRoom(upper, { x: 631, y: 782, width: 42, height: 42, label: "53", tone: "ochre" });
+  addJournalRoom(upper, { x: 650, y: 830, width: 46, height: 149, label: "49–52", tone: "ochre", vertical: true });
+  addJournalRoom(upper, { x: 286, y: 979, width: 109, height: 31, label: "68", tone: "quiet" });
+  addJournalRoom(upper, { x: 400, y: 979, width: 72, height: 31, label: "36 · 40", tone: "quiet" });
+  addJournalRoom(upper, { x: 477, y: 979, width: 148, height: 31, label: "41 · 42 · 43", tone: "quiet" });
+  upper.append(svgElement("rect", { class: "journal-upper-court", x: "295", y: "783", width: "330", height: "190", rx: "92" }));
+  upper.append(svgElement("circle", { class: "journal-upper-void", cx: "460", cy: "875", r: "67" }));
+  addSvgText(upper, { class: "journal-upper-court-label", x: "460", y: "862" }, "GREAT COURT");
+  addSvgText(upper, { class: "journal-upper-court-label", x: "460", y: "878" }, "RESTAURANT / VOID");
+  addJournalStair(upper, { x: 209, y: 775, key: "W", label: "西楼梯", levels: "L3 ↓ L0" });
+  addJournalStair(upper, { x: 680, y: 775, key: "E", label: "东楼梯", levels: "L3 ↓ L0" });
+  addJournalStair(upper, { x: 301, y: 938, key: "S", label: "南楼梯", levels: "L3 ↓ L0" });
+  addJournalStair(upper, { x: 529, y: 691, key: "N", label: "北楼梯", levels: "L3 ↕ L4" });
+  addJournalLift(upper, { x: 568, y: 695, levels: "L1–L4" });
+
+  addJournalRoutePath(upper, { d: "M225 791H292V751H421" });
+  addJournalRoutePath(upper, { d: "M421 751H515V707H529", className: "journal-route-transfer" });
+  addJournalPathLabel(upper, { x: 303, y: 790, label: "07 · 木乃伊 62–63", width: 157 });
+  addJournalTransfer(upper, { x: 36, y: 694, label: "W 西楼梯抵达 → 07", width: 165 });
+  addJournalTransfer(upper, { x: 36, y: 728, label: "07 → N 北楼梯 ↓ Room 33", width: 187 });
+  addJournalRoutePath(upper, { d: "M569 657H706V667H776", className: "journal-route-return" });
+  addJournalTransfer(upper, { x: 278, y: 604, label: "11 → N 北楼梯 ↑ 12", width: 171 });
+  museumMap.append(upper);
+
+  const lower = svgElement("g", {
+    class: `journal-floor-group ${floorIsMuted("lower") ? "is-muted" : ""}`,
+    "data-level": "lower",
+  });
+  lower.append(svgElement("rect", { class: "journal-floor-card journal-lower-card", x: "12", y: "1055", width: "876", height: "150", rx: "28" }));
+  addJournalFloorTitle(lower, {
+    title: "LOWER FLOOR",
+    subtitle: "Level -1 · -2",
+    x: 34,
+    y: 1073,
+    width: 220,
+  });
+  addJournalStair(lower, { x: 445, y: 1082, key: "S", label: "南楼梯", levels: "L0 ↓ L-2", compact: true });
+  addJournalRoom(lower, { x: 500, y: 1076, width: 238, height: 34, label: "25 · AFRICA · LEVEL -2", tone: "ochre" });
+  lower.append(svgElement("path", { class: "journal-lower-centre", d: "M526 1118q96-35 192 0l-18 39H544z" }));
+  addSvgText(lower, { class: "journal-lower-label", x: "622", y: "1141" }, "CLORE CENTRE");
+  addJournalRoom(lower, { x: 500, y: 1163, width: 238, height: 25, label: "FORD CENTRE · LEVEL -1", tone: "quiet" });
+  const noStops = svgElement("g", { class: "journal-no-stops" });
+  noStops.append(svgElement("rect", { x: "270", y: "1120", width: "150", height: "38", rx: "17" }));
+  addSvgText(noStops, { x: "345", y: "1144" }, "本路线无停靠点");
+  lower.append(noStops);
+  museumMap.append(lower);
+
+  journalStops.forEach(appendMarker);
+}
+
+function renderMuseumMap() {
+  museumMap.classList.toggle("journal-map-mode", state.routeName === "journal");
+  museumMap.parentElement?.classList.toggle("journal-shell-mode", state.routeName === "journal");
+  if (state.routeName === "journal") renderJournalMap();
+  else renderOfficialMap();
 }
 
 function renderFloorTabs() {
   floorTabs.replaceChildren();
-  floorOrder.forEach((level) => {
+  const config = activeConfig();
+  config.floorOrder.forEach((level) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.textContent = floorLabels[level];
+    button.textContent = config.floorLabels[level];
     button.setAttribute("aria-pressed", String(state.selectedFloor === level));
     button.setAttribute("aria-label", level === "all" ? "显示全部楼层" : `只突出显示 ${level} 楼层`);
     button.addEventListener("click", () => {
@@ -671,15 +1251,15 @@ function renderFloorTabs() {
 
 function renderRouteStrip() {
   routeStrip.replaceChildren();
-  museumStops.forEach((stop) => {
+  activeStops().forEach((stop) => {
     const item = document.createElement("li");
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = String(stop.id).padStart(2, "0");
     button.title = `${stop.titleZh} · ${stop.room}`;
     button.setAttribute("aria-label", `前往第 ${stop.id} 站：${stop.titleZh}`);
-    if (stop.id === state.currentStop) button.setAttribute("aria-current", "step");
-    if (state.visited.has(stop.id)) button.classList.add("is-visited");
+    if (stop.id === currentStopId()) button.setAttribute("aria-current", "step");
+    if (activeVisited().has(stop.id)) button.classList.add("is-visited");
     button.addEventListener("click", () => selectStop(stop.id));
     item.append(button);
     routeStrip.append(item);
@@ -696,9 +1276,8 @@ function renderRouteStrip() {
 }
 
 function renderDetail() {
-  const stop = museumStops[state.currentStop - 1];
-  const status = temporaryStatus(stop);
-  const visited = state.visited.has(stop.id);
+  const stop = activeStops()[currentStopId() - 1];
+  const visited = activeVisited().has(stop.id);
 
   detailPanel.innerHTML = `
     <figure class="detail-figure">
@@ -715,7 +1294,7 @@ function renderDetail() {
         <span>${stop.level}</span>
         <span>${stop.room}</span>
         <span>${stop.era}</span>
-        ${status ? `<span class="status-warning">${status}</span>` : ""}
+        <span>${stop.origin}</span>
       </div>
       <h3 class="detail-title">${stop.titleZh}</h3>
       <p class="detail-title-en">${stop.titleEn}</p>
@@ -730,7 +1309,7 @@ function renderDetail() {
         <button class="visit-toggle ${visited ? "is-visited" : ""}" type="button">
           ${visited ? "✓ 已打卡" : "标记为已参观"}
         </button>
-        <button class="next-stop" type="button" ${stop.id === museumStops.length ? "disabled" : ""} aria-label="下一站">→</button>
+        <button class="next-stop" type="button" ${stop.id === activeStops().length ? "disabled" : ""} aria-label="下一站">→</button>
       </div>
     </div>
   `;
@@ -741,27 +1320,30 @@ function renderDetail() {
 }
 
 function updateProgress() {
-  const count = state.visited.size;
-  progressCount.textContent = `${count} / ${museumStops.length}`;
-  progressBar.style.width = `${(count / museumStops.length) * 100}%`;
-  progressBar.parentElement.setAttribute("aria-label", `已完成 ${count} 站，共 ${museumStops.length} 站`);
+  const count = activeVisited().size;
+  const total = activeStops().length;
+  progressCount.textContent = `${count} / ${total}`;
+  progressBar.style.width = `${(count / total) * 100}%`;
+  progressBar.parentElement.setAttribute("aria-label", `已完成 ${count} 站，共 ${total} 站`);
 }
 
 function renderInteractiveRoute() {
+  renderRouteOptions();
+  renderRouteIdentity();
   renderFloorTabs();
   renderMuseumMap();
   renderRouteStrip();
   renderDetail();
   updateProgress();
-  closureAlert.hidden = !isClosurePeriod();
+  closureAlert.hidden = false;
 }
 
 function selectStop(id, { scrollOnMobile = false } = {}) {
-  if (id < 1 || id > museumStops.length) return;
-  state.currentStop = id;
-  const stop = museumStops[id - 1];
-  if (state.selectedFloor !== "all" && state.selectedFloor !== stop.level) {
-    state.selectedFloor = stop.level;
+  if (id < 1 || id > activeStops().length) return;
+  state.currentStops[state.routeName] = id;
+  const stop = activeStops()[id - 1];
+  if (state.selectedFloor !== "all" && state.selectedFloor !== markerFloor(stop)) {
+    state.selectedFloor = markerFloor(stop);
   }
   renderInteractiveRoute();
   if (scrollOnMobile && window.matchMedia("(max-width: 720px)").matches) {
@@ -770,9 +1352,10 @@ function selectStop(id, { scrollOnMobile = false } = {}) {
 }
 
 function toggleVisited(id) {
-  const wasVisited = state.visited.has(id);
-  if (wasVisited) state.visited.delete(id);
-  else state.visited.add(id);
+  const visited = activeVisited();
+  const wasVisited = visited.has(id);
+  if (wasVisited) visited.delete(id);
+  else visited.add(id);
   saveVisited();
   renderInteractiveRoute();
   showToast(wasVisited ? "已取消这一站的打卡。" : `第 ${id} 站已点亮！`);
@@ -781,10 +1364,11 @@ function toggleVisited(id) {
 
 function renderCredits() {
   creditsList.replaceChildren();
-  museumStops.forEach((stop) => {
+  [...journalStops, ...museumStops].forEach((stop, index) => {
     const item = document.createElement("li");
+    const routeLabel = index < journalStops.length ? "一日线" : "三小时线";
     item.innerHTML = `
-      <span>${String(stop.id).padStart(2, "0")}</span>
+      <span>${routeLabel}<br>${String(stop.id).padStart(2, "0")}</span>
       <div>
         <a href="${stop.photo.url}" target="_blank" rel="noreferrer">${stop.titleZh} · ${stop.photo.author} ↗</a>
         <small><a href="${stop.photo.licenseUrl}" target="_blank" rel="noreferrer">${stop.photo.license}</a> · 来源 Wikimedia Commons · 本站版本已压缩并可能裁切</small>
@@ -792,6 +1376,34 @@ function renderCredits() {
     `;
     creditsList.append(item);
   });
+}
+
+function renderRouteOptions() {
+  document.querySelectorAll("[data-route]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.route === state.routeName));
+  });
+}
+
+function renderRouteIdentity() {
+  const config = activeConfig();
+  document.querySelector("#hero-eyebrow").innerHTML = `<span>02</span> ${config.eyebrow}`;
+  document.querySelector("#museum-title").innerHTML = config.title;
+  document.querySelector("#hero-description").textContent = config.description;
+  document.querySelector("#hero-tags").innerHTML = config.tags.map((tag) => `<span>${tag}</span>`).join("");
+  document.querySelector("#ticket-title").innerHTML = config.ticketTitle;
+  document.querySelector("#ticket-meta").textContent = config.ticketMeta;
+  document.querySelector("#route-heading").textContent = config.heading;
+  document.querySelector("#map-label").textContent = config.mapLabel;
+  document.querySelector("#footer-route-source").href = config.source;
+  document.title = config.documentTitle;
+}
+
+function selectRoute(routeName) {
+  if (!routeConfigs[routeName] || routeName === state.routeName) return;
+  state.routeName = routeName;
+  state.selectedFloor = "all";
+  renderInteractiveRoute();
+  showToast(routeName === "journal" ? "已切换到一日世界文明主线。" : "已切换到馆方三小时路线。");
 }
 
 function showToast(message) {
@@ -814,7 +1426,7 @@ function closeCredits() {
 function showMuseum() {
   homePage.hidden = true;
   museumPage.hidden = false;
-  document.title = "大英博物馆三小时寻宝记 · 我的英国漫游地图";
+  document.title = activeConfig().documentTitle;
   if (!state.museumRendered) {
     renderInteractiveRoute();
     state.museumRendered = true;
@@ -852,14 +1464,18 @@ document.querySelector("#back-home").addEventListener("click", () => {
 });
 
 document.querySelector("#reset-progress").addEventListener("click", () => {
-  if (!state.visited.size) {
+  if (!activeVisited().size) {
     showToast("还没有打卡记录。");
     return;
   }
-  state.visited.clear();
+  activeVisited().clear();
   saveVisited();
   renderInteractiveRoute();
   showToast("参观进度已清空，可以重新出发。");
+});
+
+document.querySelectorAll("[data-route]").forEach((button) => {
+  button.addEventListener("click", () => selectRoute(button.dataset.route));
 });
 
 document.querySelector("#open-credits").addEventListener("click", openCredits);
